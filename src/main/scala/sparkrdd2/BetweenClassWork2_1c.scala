@@ -1,3 +1,5 @@
+package sparkrdd2
+
 import org.apache.spark.rdd.PairRDDFunctions
 import org.apache.spark.SparkConf
 import org.apache.spark.SparkContext
