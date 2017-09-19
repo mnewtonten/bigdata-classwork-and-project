@@ -1,4 +1,3 @@
-import org.apache.spark.rdd.PairRDDFunctions
 import org.apache.spark.SparkConf
 import org.apache.spark.SparkContext
 import scalafx.application.JFXApp
@@ -79,35 +78,5 @@ object GroupWork extends JFXApp {
   //println("Max rainfall in India is "+maxPrecipIN)
   //println(sanAntonioStation.count+" stations in San Antonio")
   //sanAntonioStation.take(5) foreach println
-  //println(sanAntonioStationID.count+" stations in San Antonio that have reported temp")
-
-  
-  val tempChanges = sData.filter(x => (x.elem == "TMAX" || x.elem == "TMIN")) 
-  val tempPair = tempChanges.map(x => (x.id,x.date) -> (x.elem, x.value))
-  val maxTemps = tempPair.filter(x => x._1 == "TMAX")
-  val minTemps = tempPair.filter(x => x._1 == "TMIN")
-  //val tempPair = tempChanges.aggregate(x => x.id -> x)
-  val joinPair = maxTemps.join(minTemps)
-  
-
-  /* 
-  val test = tempChanges.aggregateByKey(0.0,0))({ case ((sum,cnt), td)) => 
-    (td.max - td.min, cnt+1)
-  }, { case ((s1),(s2)) => (s1-s2,c1-c2) 
-  })
-  
-  //pair RDD location & day then join the two. 
-  */
-  /*
-
-  tempChanges.map({ case (k, v) =>
-    val tmax = v.filter(_.elem == "TMAX").groupBy(_.date)
-    val tmin = v.filter(_.elem == "TMIN").groupBy(_.date)
-    val maxMinPairs = tmax.join(tmin)
-    maxMinPairs.take(1) foreach println
-    
-  })
-  */
-  
-  joinPair.take(5) foreach println
+  println(sanAntonioStationID.count+" stations in San Antonio that have reported temp")
 }
