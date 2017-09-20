@@ -1,5 +1,7 @@
 # Between-Class Questions #2
 
+Michael Newton
+
 # Problem 1
     A. Standard deviations of MAX Temps 
         Group One: 7.7098912
@@ -18,4 +20,9 @@ C.
 ![Group One](https://raw.githubusercontent.com/CSCI3395-F17/daily-code-mnewtonten/master/images/groupOne.png?token=AVGCDUVS5SlsYCjNHLE50iL4iaXEnApWks5ZyfbswA%3D%3D)
 ![Group Two](https://raw.githubusercontent.com/CSCI3395-F17/daily-code-mnewtonten/master/images/groupTwo.png?token=AVGCDfHbZKte3PGywpQ0NG_0phzGbl0cks5ZyfgKwA%3D%3D)
 ![Group Three](https://raw.githubusercontent.com/CSCI3395-F17/daily-code-mnewtonten/master/images/groupThree.png?token=AVGCDdhqPTaqlNQyOH0GwF3iIoaNGmCkks5ZyfgOwA%3D%3D)
-    
+
+# Problem 2   
+
+  Filter and map an RDD down to just (ID , VALUE) where value = max temp, and then use a group by key, ten join it with location of station and plot.
+
+![Temperatures](https://github.com/CSCI3395-F17/daily-code-mnewtonten/blob/master/images/question2.png?raw=true) 
