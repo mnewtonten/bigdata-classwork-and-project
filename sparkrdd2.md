@@ -26,3 +26,11 @@ C.
   Filter and map an RDD down to just (ID , VALUE) where value = max temp, and then use a group by key, ten join it with location of station and plot.
 
 ![Temperatures](https://github.com/CSCI3395-F17/daily-code-mnewtonten/blob/master/images/question2.png?raw=true) 
+
+# Problem 3 
+
+a. Average for all of 2016 was 52.6863617 and average for all of 1897 was 50.4572105 Made a function that calculated average temp of the year. 
+b. Average of both 2016 and 1897 is 51.5717861.
+
+
+
