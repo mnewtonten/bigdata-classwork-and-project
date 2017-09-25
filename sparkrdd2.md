@@ -29,8 +29,27 @@ C.
 
 # Problem 3 
 
-a. Average for all of 2016 was 52.6863617 and average for all of 1897 was 50.4572105 Made a function that calculated average temp of the year. 
-b. Average of both 2016 and 1897 is 51.5717861.
+    A. Average for all of 2016 was 52.6863617 and average for all of 1897 was 50.4572105 Made a function that calculated average temp of the year. 
+
+    B. Average for all stations that were active in both 2016 and 1897 was 50.2034428 for 1897 and 53.2649334 for 2016.
+
+C.
+
+![All Stations]()
+
+D.
+
+![Both Year Stations]()
+
+
+# Problem 4
+
+    The merits of looking at all stations for all times is that hopefully, with more established stations you will have more accurate averages across the world. The problem with looking at all years this way is that it makes it an unfair comparison since you are looking at stations that didn't exist before.
+
+# Problem 5
+
+    One thing that made me skeptical was one point in the plot for my answers to 3b and 3c was very very low. I'm not sure how this one point differs from the rest of the data so much, but I think that it's possible that it could be an error. You could identify if this was a flaw or not by isolating the temperatures for that year and comparing them closley with another year, or analyzing the years directly before and after. you could also do it by looking at the data file itself to make sure all of the values are there. This would be hard to fix because if they were missing or corrupted it would not be possible to get the data.  
+
 
 
 
