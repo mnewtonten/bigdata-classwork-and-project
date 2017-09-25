@@ -35,11 +35,12 @@ C.
 
 C.
 
-![All Stations]()
+![All Stations](://raw.githubusercontent.com/CSCI3395-F17/daily-code-mnewtonten/master/images/3c.png?token=AVGCDWunITOZ7y-jkO4gJ7D7qZqyWlhUks5Z0d1hwA%3D%3D)
+
 
 D.
 
-![Both Year Stations]()
+![Both Year Stations](https://raw.githubusercontent.com/CSCI3395-F17/daily-code-mnewtonten/master/images/3d.png?token=AVGCDQ34Ck3C92ZfUZ176mutsRzuYq72ks5Z0d2lwA%3D%3D)
 
 
 # Problem 4
