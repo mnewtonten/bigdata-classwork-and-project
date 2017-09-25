@@ -52,5 +52,10 @@ D.
     One thing that made me skeptical was one point in the plot for my answers to 3b and 3c was very very low. I'm not sure how this one point differs from the rest of the data so much, but I think that it's possible that it could be an error. You could identify if this was a flaw or not by isolating the temperatures for that year and comparing them closley with another year, or analyzing the years directly before and after. you could also do it by looking at the data file itself to make sure all of the values are there. This would be hard to fix because if they were missing or corrupted it would not be possible to get the data.  
 
 
+# InClass Questions
 
-
+    1. Station USS0063P01S on 8/02/2017 with a difference of 212.58
+    2. Station USS0045M07S with a difference of 231.3
+    3. Standard Devietation of high Temps is 22.832941
+      Standard Deviation of low temps is 20.9614385
+    4. 1821 stations
