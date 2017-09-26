@@ -13,4 +13,5 @@ Michael Newton
 2. Max rainfall in India is IN017111200, with 4361 precipitation on 03-09-2017. See above.
 3. 28 Stations in San Antonio. Filtering TX stations based on Name value
 4. 3 Stations in San Antonio have reported Temp
-
+5. The station USW00012970 had a daily increase of 250.0 in 1/30/2017
+6.  
