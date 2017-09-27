@@ -6009,7 +6009,7 @@
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-sbt#template-resolver;0.1!template-resolver.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.scala-lang#jline;2.10.6!jline.jar[0m
 [0m[[0mdebug[0m] [0m	[NOT REQUIRED] org.fusesource.jansi#jansi;1.4!jansi.jar[0m
-[0m[[0mdebug[0m] [0m:: resolution report :: resolve 1356ms :: artifacts dl 33ms[0m
+[0m[[0mdebug[0m] [0m:: resolution report :: resolve 1952ms :: artifacts dl 148ms[0m
 [0m[[0mdebug[0m] [0m	report for default#inclass-build;0.1-SNAPSHOT compile produced in /users/mnewton/InClass/project/target/resolution-cache/reports/default-inclass-build-compile.xml[0m
 [0m[[0mdebug[0m] [0m	report for default#inclass-build;0.1-SNAPSHOT runtime produced in /users/mnewton/InClass/project/target/resolution-cache/reports/default-inclass-build-runtime.xml[0m
 [0m[[0mdebug[0m] [0m	report for default#inclass-build;0.1-SNAPSHOT test produced in /users/mnewton/InClass/project/target/resolution-cache/reports/default-inclass-build-test.xml[0m
@@ -6023,5 +6023,5 @@
 [0m[[0mdebug[0m] [0m	report for default#inclass-build;0.1-SNAPSHOT docs produced in /users/mnewton/InClass/project/target/resolution-cache/reports/default-inclass-build-docs.xml[0m
 [0m[[0mdebug[0m] [0m	report for default#inclass-build;0.1-SNAPSHOT pom produced in /users/mnewton/InClass/project/target/resolution-cache/reports/default-inclass-build-pom.xml[0m
 [0m[[0mdebug[0m] [0m	report for default#inclass-build;0.1-SNAPSHOT scala-tool produced in /users/mnewton/InClass/project/target/resolution-cache/reports/default-inclass-build-scala-tool.xml[0m
-[0m[[0mdebug[0m] [0m	resolve done (1356ms resolve - 33ms download)[0m
+[0m[[0mdebug[0m] [0m	resolve done (1952ms resolve - 148ms download)[0m
 [0m[[0minfo[0m] [0mDone updating.[0m
