@@ -11,19 +11,27 @@ import swiftvis2.plotting.renderer._
 import org.apache.spark.sql.SparkSession
 
 
-object SSQL2_3 extends JFXApp{
+object SML extends JFXApp{
   val spark = SparkSession.builder.master("spark://pandora00:7077").getOrCreate
   import spark.implicits._
   spark.sparkContext.setLogLevel("WARN")
 
-  case class Results(id:Double, votes_dem:Double, votes_gop:Double, total_votes:Double, per_dem:Double, per_gop:Double, diff:Double, per_point_diff:String, state_abbr:String, county:String, combined_fips:String)
+  //case class (genHealth:Double, physHealth:Double, mentHealth:Double, poorHealth:Double, exeRany2:Double, slepTim1:Double)
+
+  
+/*
+  rd.map{line =>
+    cpls.map(c => line.substring(c.start-1, c.start+c.length))
+  }
+*/
 
   val schema = StructType(Array(
-    StructField("series_id", StringType),
-    StructField("year", IntegerType),
-    StructField("period", StringType),
-    StructField("value", DoubleType),
-    StructField("footnote_codes", StringType)))
+    StructField("genHealth", DoubleType),
+    StructField("physHealth", DoubleType),
+    StructField("mentHealth", DoubleType),
+    StructField("poorHealth", DoubleType),
+    StructField("exeRany2", DoubleType),
+    StructField("slepTim1", DoubleType)))
 
   val schema2 = StructType(Array(
     StructField("series_id", StringType),
@@ -35,10 +43,13 @@ object SSQL2_3 extends JFXApp{
     StructField("series_title",StringType)))
   
         
-  val election = spark.read.schema(Encoders.product[Results].schema).option("header",true).csv("/data/BigData/bls/2016_US_County_Level_Presidential_Results.csv").as[Results]
-  val data = spark.read.schema(schema).option("header", true).option("delimiter", "\t").csv("/data/BigData/bls/la/la.data.concatenatedStateFiles").cache()
-  val series = spark.read.schema(schema2).option("header",true).option("delimiter", "\t").csv("/data/BigData/bls/la/la.series").cache()
+//  val election = spark.read.schema(Encoders.product[Results].schema).option("header",true).csv("/data/BigData/bls/2016_US_County_Level_Presidential_Results.csv").as[Results]
+//  val data = spark.read.schema(schema).option("header", true).option("delimiter", "\t").csv("/data/BigData/bls/la/la.data.concatenatedStateFiles").cache()
 
+//  val series = spark.read.schema(schema2).option("header",true).option("delimiter", "\t").csv("/data/BigData/bls/la/la.series").cache()
+  val series = spark.read.schema(schema).option("header",false).option("delimiter", "\t").csv("/data/BigData/brfss/LLCLP2016.asc").cache()
+
+  /*
   //getting Unemployment Rate  
   val uRate = data.filter(substring('series_id,19,2) === "03").filter('period =!= "M13")
   
@@ -51,7 +62,7 @@ object SSQL2_3 extends JFXApp{
   val countyData = uRate.join(countyIDs, uRate("series_id") === countyIDs("series_id"))
  
   countyData.show()
-
+  */
  
   //splitting up the datasets by date for question 1
   /*
@@ -95,7 +106,8 @@ object SSQL2_3 extends JFXApp{
   */
 
   //Question 2
-
+  
+  /*
   val voteSelect = election.select('total_votes, 'per_dem, 'per_gop, 'diff, 'county)
   
   val sTitleUDF = udf{(s:String) => s.split(":")(1).split(",")(0).reverse.dropRight(1).reverse}
@@ -119,7 +131,7 @@ object SSQL2_3 extends JFXApp{
 
 
   System.out.println("~~W~H~E~W~~~T~H~A~T~~~W~A~S~~~S~O~M~E~~~B~I~G~~~D~A~T~A~~")
-
+  */
 
   spark.stop()
 

@@ -1,0 +1,58 @@
+Tuesday Oct, 24
+
+Training & Testing set (on slides)
+  -For classification you need to split your data
+  -Possible to do overfitting
+
+Random Forest Example
+
+~~~
+
+object CensusDataClassify extends App{
+  val spark = SparkSession.builder().master("local").getOrCreate()
+  import spark.implicits._
+  
+  ("WARN")
+
+  val schema = StructType(Array(
+    StructField("age",IntegerType),
+    StructField("workclass",StringType),
+    StructField("fnlwgt",IntegerType),
+    StructField("education",StringType),
+    ectwhothefuckcares)
+
+  val data = spark.read.schema(schema).option("header",true).csv
+
+  val intFeatureCols = "age fnlw educationNum capitalGain capitalLoss hoursPerWeek income".split(" ")
+  val stringFeatureCols = "workclass education maritalStatus occupation relationship race sex nativeCountry ".split(" ")
+
+  val indexedData = stringFeatureCols.foldLeft(data) {(ds, name) => 
+    val indexer = new StringIndexer().setInputCol(name).setOutputCol(name+"-i").
+    indexer.fit(ds).transform(ds)
+  }.withColumn("label", when('income === ">50K", 1).otherwise(0))
+
+  val assembler = new VectorAssembler().
+    setInputCols(intFeatureCols ++ stringFeatureCols.map(_+"-i)).
+    setOutputCol("features")
+  val assembledData = assembler.transform(indexedData)
+  //assembledData.show()
+
+  //Splitting between testing & training data
+  val Array(trainData, testData) = assembledData.randomSplit(Array(0.8,0.2)).map(_.cache())
+
+  
+  val rf = new RandomForestClassifier
+  val model = rf.fit(trainData)
+
+  val predictions = model.transform(testData)
+  predictions.show()
+  val evaluator = new BinaryClassificationEvaluator
+  val accuracy = evaluator.evaluate(predictions)
+  println(s"accuracy = $accuracy")
+
+  spark.stop
+}
+
+~~~
+
+-----------------------------------------------------------------------
