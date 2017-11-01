@@ -24,7 +24,7 @@ object SML extends JFXApp{
     cpls.map(c => line.substring(c.start-1, c.start+c.length))
   }
 */
-
+/*
   val schema = StructType(Array(
     StructField("genHealth", DoubleType),
     StructField("physHealth", DoubleType),
@@ -34,7 +34,7 @@ object SML extends JFXApp{
     StructField("slepTim1", DoubleType)))
 
   val schema2 = StructType(Array(
-    StructField("series_id", StringType),
+    StructField(series_id", StringType),
     StructField("area_type_code", StringType),
     StructField("area_code", StringType),
     StructField("measure_code",IntegerType),
@@ -47,8 +47,10 @@ object SML extends JFXApp{
 //  val data = spark.read.schema(schema).option("header", true).option("delimiter", "\t").csv("/data/BigData/bls/la/la.data.concatenatedStateFiles").cache()
 
 //  val series = spark.read.schema(schema2).option("header",true).option("delimiter", "\t").csv("/data/BigData/bls/la/la.series").cache()
-  val series = spark.read.schema(schema).option("header",false).option("delimiter", "\t").csv("/data/BigData/brfss/LLCLP2016.asc").cache()
+  val series = spark.read.schema(schema).option("header",false).option("delimiter", "\t").csv("/data/BigData/brfss/LLCP2016.asc").cache()
 
+*/
+  //series.show()
   /*
   //getting Unemployment Rate  
   val uRate = data.filter(substring('series_id,19,2) === "03").filter('period =!= "M13")

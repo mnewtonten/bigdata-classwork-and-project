@@ -24,24 +24,26 @@ object ProblemSet1_5 extends JFXApp {
 
   //Case Class for 2017 - and sData, RDD of Case Class SData
   case class SData(id: String, date: Int, elem: String, value: Double)
+  
+
   val sData = lines2017.map {line =>
     val p = line.split(",")
-    SData(p(0).toString, p(1).toInt, p(2).toString, p(3).toDouble)
+    //SData(p(0).toString, p(1).toInt, p(2).toString, p(3).toDouble)
   }
 
   val stationsPair = stations.map(x => (x.id, x.name))
   val saStations = stations.filter(x => (x.name.substring(0,11) == "SAN ANTONIO" && x.id.substring(0,2) == "US")).map(
     x=> (x.id,x.name))
-  val tempData = sData.filter(x => (x.elem == "TMAX" || x.elem == "TMIN")).map(
-    x=> ((x.id,x.date), (x.value)))
-  val dailyIncrease = tempData.groupByKey.filter(x => x._2.size == 2).map(
-    x=> (x._1._1, (x._2.toList(0) - x._2.toList(1), x._1._2)))
-  val subtractions = stationsPair.subtractByKey(saStations)
-  val saDailyTemps = dailyIncrease.subtractByKey(subtractions)
-  val highestIncrease = saDailyTemps.fold(("",(0.0, 0)))((acc,report) => {
-    if (acc._2._1 < report._2._1) report else acc})
+  //val tempData = sData.filter(x => (x.elem == "TMAX" || x.elem == "TMIN")).map(
+    //x=> ((x.id,x.date), (x.value)))
+  //val dailyIncrease = tempData.groupByKey.filter(x => x._2.size == 2).map(
+    //x=> (x._1._1, (x._2.toList(0) - x._2.toList(1), x._1._2)))
+  //val subtractions = stationsPair.subtractByKey(saStations)
+  //val saDailyTemps = dailyIncrease.subtractByKey(subtractions)
+  //val highestIncrease = saDailyTemps.fold(("",(0.0, 0)))((acc,report) => {
+    //if (acc._2._1 < report._2._1) report else acc})
 
-  System.out.println(highestIncrease)
+  //System.out.println(highestIncrease)
   
 
 
