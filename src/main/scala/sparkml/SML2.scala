@@ -62,22 +62,24 @@ object SML2 extends App {
  
 
   val ddf = data.select(cols:_*).cache().na.fill(0.0).withColumn("label", '_c46)
-  //val ddf = data.select(cols:_*).cache().na.fill(0.0).withColumn("label", when('_c46 === 0 || '_c46 === 1, 1)otherwise(0))
+  val ddf2 = data.select(cols:_*).cache().na.fill(0.0).withColumn("label", when('_c46 === 0 || '_c46 === 1, 1)otherwise(0))
   
-  val assembler2 = new VectorAssembler().
-    setInputCols(colNames.toArray).
-    setOutputCol("features")
-  //val assembledData = assembler.transform(ddf)
-
   val assembler = new VectorAssembler().
     setInputCols(colNames.toArray).
     setOutputCol("features")
   val assembledData = assembler.transform(ddf)
 
+  val assembler2 = new VectorAssembler().
+    setInputCols(colNames.toArray).
+    setOutputCol("features")
+  val assembledData2 = assembler.transform(ddf2)
+
 
 
   //val df = assembledData.map(Tuple1.apply).toDF("features")
-  val corrMatrix = Correlation.corr(assembledData, "features").head
+  
+
+  //val corrMatrix = Correlation.corr(assembledData2, "features").head
   val Row(coeff1: Matrix) = Correlation.corr(assembledData, "features").head
   println("Pearson correlation matrix:\n" + coeff1.toString)
   println("--------------- No. 2 --------------------")
@@ -95,7 +97,17 @@ object SML2 extends App {
   val accuracy = evaluator.evaluate(predictions)
   println(s"accuracy = $accuracy")
 
-  
+  //NUMBA TWO 
+  val Array(trainData2, testData2) = assembledData2.randomSplit(Array(0.8, 0.2)).map(_.cache())
+  val rf2 = new RandomForestClassifier
+  val model2 = rf2.fit(trainData)
+   
+  val predictions2 = model.transform(testData2)
+  val evaluator2 = new BinaryClassificationEvaluator
+  val accuracy2 = evaluator2.evaluate(predictions2)
+  println(s"accuracy2 = $accuracy2")
+
+
 
   spark.stop
 

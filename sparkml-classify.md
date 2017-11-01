@@ -70,6 +70,9 @@ a.
 I did a random forest to do the classification and only got
 Accuracy = 0.27
 so maybe this is not the best way to fit the data, but considering that other people got a better number with the same method, maybe I assembled the data poorly.
+After running it more times, I was able to get a high accuracy of 0.35
 
 b. 
-
+I also used a random forest to classify this one, except when narrowing down the column I reassigned the values
+my accuracy was 0.67
+so this was a much more accurate approach, at least with the way that this was coaxed into being more fixed. After running it a second time I got a high of 0.78 accuracy. 
