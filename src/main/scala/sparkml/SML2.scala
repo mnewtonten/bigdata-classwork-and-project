@@ -21,6 +21,9 @@ import scala.collection.mutable.ListBuffer
 import org.apache.spark.ml.linalg.{Matrix, Vectors}
 import org.apache.spark.sql.Row
 
+import org.apache.spark.ml.classification.RandomForestClassifier
+import org.apache.spark.ml.evaluation.BinaryClassificationEvaluator
+
 object SML2 extends App {
   val spark = SparkSession.builder().master("spark://pandora00:7077").getOrCreate()
   import spark.implicits._
@@ -54,13 +57,23 @@ object SML2 extends App {
 
   val cols = ((0 to 4) ++ (8 to 46)).map(i => col("_c" + i).cast(DoubleType))
 
- val ddf = data.select(cols:_*).cache().na.fill(0.0)
 
+ //val ddf = data.select(cols:_*).cache().na.fill(0.0)
+ 
+
+  val ddf = data.select(cols:_*).cache().na.fill(0.0).withColumn("label", '_c46)
+  //val ddf = data.select(cols:_*).cache().na.fill(0.0).withColumn("label", when('_c46 === 0 || '_c46 === 1, 1)otherwise(0))
+  
+  val assembler2 = new VectorAssembler().
+    setInputCols(colNames.toArray).
+    setOutputCol("features")
+  //val assembledData = assembler.transform(ddf)
 
   val assembler = new VectorAssembler().
     setInputCols(colNames.toArray).
     setOutputCol("features")
   val assembledData = assembler.transform(ddf)
+
 
 
   //val df = assembledData.map(Tuple1.apply).toDF("features")
@@ -70,8 +83,23 @@ object SML2 extends App {
   println("--------------- No. 2 --------------------")
   //corrMatrix.show()
   coeff1.toArray.grouped(44).map(_.mkString(" ")).foreach(println)
+ 
+  
+  val Array(trainData, testData) = assembledData.randomSplit(Array(0.8, 0.2)).map(_.cache())
+  val rf = new RandomForestClassifier
+  val model = rf.fit(trainData)
+   
+  val predictions = model.transform(testData)
+  predictions.show()
+  val evaluator = new BinaryClassificationEvaluator
+  val accuracy = evaluator.evaluate(predictions)
+  println(s"accuracy = $accuracy")
+
   
 
   spark.stop
+
+
+  
 
 }

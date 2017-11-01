@@ -67,5 +67,9 @@ Columns 1, 5, and 42
 # Out of Class
 
 a. 
+I did a random forest to do the classification and only got
+Accuracy = 0.27
+so maybe this is not the best way to fit the data, but considering that other people got a better number with the same method, maybe I assembled the data poorly.
 
 b. 
+
