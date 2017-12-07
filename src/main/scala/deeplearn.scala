@@ -1,3 +1,5 @@
+/*
+
 package deeplearn;
 
 import org.datavec.api.records.reader.RecordReader;
@@ -25,9 +27,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.io.File
 
-/**
- * @author Adam Gibson
- */
 object CSVExample extends App{
 
         //First: get the dataset using the record reader. CSVval handles loading/parsing
@@ -97,4 +96,4 @@ object CSVExample extends App{
         println(eval.stats());
 
 }
-
+*/
