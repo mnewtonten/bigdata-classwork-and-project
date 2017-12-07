@@ -1,7 +1,3 @@
-/*
-
-package deeplearn;
-
 import org.datavec.api.records.reader.RecordReader;
 import org.datavec.api.records.reader.impl.csv.CSVRecordReader;
 import org.datavec.api.split.FileSplit;
@@ -27,25 +23,25 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.io.File
 
-object CSVExample extends App{
+object deeplearn extends App{
 
         //First: get the dataset using the record reader. CSVval handles loading/parsing
         val numLinesToSkip = 0;
-        val delimiter = ',';
+        val delimiter = '\t';
         val recordReader = new CSVRecordReader(numLinesToSkip,delimiter);
         recordReader.initialize(new FileSplit(
-           new File("/data/BigData/admissions/AdmissionAnon2.tsv") 
+           new File("/data/BigData/admissions/AdmissionAnon3.tsv") 
         ))
 
         //Second: the valvalIterator handles conversion to val objects, ready for use in neural network
-        val labelIndex = 4;     //5 values in each row of the iris.txt CSV: 4 input features followed by an valeger label (class) index. Labels are the 5th value (index 4) in each row
-        val numClasses = 3;     //3 classes (types of iris flowers) in the iris data set. Classes have valeger values 0, 1 or 2
+        val labelIndex = 40;     //5 values in each row of the iris.txt CSV: 4 input features followed by an valeger label (class) index. Labels are the 5th value (index 4) in each row
+        val numClasses = 2;     //3 classes (types of iris flowers) in the iris data set. Classes have valeger values 0, 1 or 2
         val batchSize = 150;    //Iris data set: 150 examples total. We are loading all of them valo one val (not recommended for large data sets)
 
         val iterator = new RecordReaderDataSetIterator(recordReader,batchSize,labelIndex,numClasses);
         val allData = iterator.next();
         allData.shuffle();
-        val testAndTrain = allData.splitTestAndTrain(0.65);  //Use 65% of data for training
+        val testAndTrain = allData.splitTestAndTrain(0.50);  //Use 65% of data for training
 
         val trainingData = testAndTrain.getTrain();
         val testData = testAndTrain.getTest();
@@ -57,9 +53,9 @@ object CSVExample extends App{
         normalizer.transform(testData);         //Apply normalization to the test data. This is using statistics calculated from the *training* set
 
 
-        val numInputs = 4;
-        val outputNum = 3;
-        val iterations = 1000;
+        val numInputs = 40;
+        val outputNum = 5;
+        val iterations = 3000;
         val seed = 6;
 
 
@@ -96,4 +92,4 @@ object CSVExample extends App{
         println(eval.stats());
 
 }
-*/
+
