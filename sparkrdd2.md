@@ -17,9 +17,11 @@ Michael Newton
     -----------------------------------------------
     
 C.
-![Group One](https://raw.githubusercontent.com/CSCI3395-F17/daily-code-mnewtonten/master/images/groupOne.png?token=AVGCDUVS5SlsYCjNHLE50iL4iaXEnApWks5ZyfbswA%3D%3D)
-![Group Two](https://raw.githubusercontent.com/CSCI3395-F17/daily-code-mnewtonten/master/images/groupTwo.png?token=AVGCDfHbZKte3PGywpQ0NG_0phzGbl0cks5ZyfgKwA%3D%3D)
-![Group Three](https://raw.githubusercontent.com/CSCI3395-F17/daily-code-mnewtonten/master/images/groupThree.png?token=AVGCDdhqPTaqlNQyOH0GwF3iIoaNGmCkks5ZyfgOwA%3D%3D)
+![Group One](https://github.com/CSCI3395-F17/daily-code-mnewtonten/blob/master/images/groupOne.png?raw=true)
+
+![Group Two](https://github.com/CSCI3395-F17/daily-code-mnewtonten/blob/master/images/groupTwo.png?raw=true)
+
+![Group Three](https://github.com/CSCI3395-F17/daily-code-mnewtonten/blob/master/images/groupThree.png?raw=true)
 
 # Problem 2   
 
