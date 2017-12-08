@@ -23,19 +23,19 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import java.io.File
 
-object deeplearn extends App{
+object deeplearn2 extends App{
 
         //First: get the dataset using the record reader. CSVval handles loading/parsing
         val numLinesToSkip = 0;
         val delimiter = '\t';
         val recordReader = new CSVRecordReader(numLinesToSkip,delimiter);
         recordReader.initialize(new FileSplit(
-           new File("/data/BigData/admissions/AdmissionAnon2.tsv") 
+           new File("/data/BigData/admissions/AdmissionAnon3.tsv") 
         ))
 
         //Second: the valvalIterator handles conversion to val objects, ready for use in neural network
         val labelIndex = 40;     //5 values in each row of the iris.txt CSV: 4 input features followed by an valeger label (class) index. Labels are the 5th value (index 4) in each row
-        val numClasses = 5;     //3 classes (types of iris flowers) in the iris data set. Classes have valeger values 0, 1 or 2
+        val numClasses = 2;     //3 classes (types of iris flowers) in the iris data set. Classes have valeger values 0, 1 or 2
         val batchSize = 150;    //Iris data set: 150 examples total. We are loading all of them valo one val (not recommended for large data sets)
 
         val iterator = new RecordReaderDataSetIterator(recordReader,batchSize,labelIndex,numClasses);
@@ -54,7 +54,7 @@ object deeplearn extends App{
 
 
         val numInputs = 40;
-        val outputNum = 5;
+        val outputNum = 2;
         val iterations = 3000;
         val seed = 6;
 
@@ -63,7 +63,7 @@ object deeplearn extends App{
         val conf = new NeuralNetConfiguration.Builder()
             .seed(seed)
             .iterations(iterations)
-            .activation(Activation.SIGMOID) //sigmoid
+            .activation(Activation.SIGMOID)
             .weightInit(WeightInit.XAVIER)
             .learningRate(0.1)
             .regularization(true).l2(1e-4)
@@ -86,7 +86,7 @@ object deeplearn extends App{
         model.fit(trainingData);
 
         //evaluate the model on the test set
-        val eval = new Evaluation(5);
+        val eval = new Evaluation(2);
         val output = model.output(testData.getFeatureMatrix());
         eval.eval(testData.getLabels(), output);
         println(eval.stats());
