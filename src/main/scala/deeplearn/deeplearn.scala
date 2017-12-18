@@ -1,4 +1,4 @@
-import org.datavec.api.records.reader.RecordReader;
+/*import org.datavec.api.records.reader.RecordReader;
 import org.datavec.api.records.reader.impl.csv.CSVRecordReader;
 import org.datavec.api.split.FileSplit;
 import org.datavec.api.util.ClassPathResource;
@@ -92,4 +92,4 @@ object deeplearn extends App{
         println(eval.stats());
 
 }
-
+*/
