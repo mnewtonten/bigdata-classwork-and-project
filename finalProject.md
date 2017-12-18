@@ -6,22 +6,39 @@ What I will be doing is examining the sentiment for the articles using sentiment
 
 Counts for publications
 +--------------------+-----+
+
 |         publication|count|
+
 +--------------------+-----+
+
 |           Breitbart|23776| + 2
+
 |       New York Post|17493| + 1
+
 |                 NPR|11992| - 1
+
 |                 CNN|11488| - 1
+
 |     Washington Post|11114| - 2
+
 |             Reuters|10709| 0
+
 |            Guardian| 8681| - 1
+
 |      New York Times| 7803| - 2
+
 |            Atlantic| 7179| - 1
+
 |    Business Insider| 6756| 0
+
 |     National Review| 6203| + 2
+
 | Talking Points Memo| 5213| - 1
+
 |                 Vox| 4928| - 1
+
 |       Buzzfeed News| 4845| 0
+
 |            Fox News| 4354| + 2
 
 Using the following chart as well as mediabiasfactcheck.com and allsides.com I was able to come up with these bias ratings for the different websites, displayed to the right of the different publications.
@@ -34,10 +51,15 @@ For this small scale test I did, I limited the number of articles from each publ
 
 I was able to come up with these plots for each political bias.
 
+![Very Conservative](https://github.com/CSCI3395-F17/daily-code-mnewtonten/blob/master/images/veryconservative.png?raw=true)
+![Conservative](https://github.com/CSCI3395-F17/daily-code-mnewtonten/blob/master/images/conservative.png?raw=true)
+![Neutral](https://github.com/CSCI3395-F17/daily-code-mnewtonten/blob/master/images/neutral.png?raw=true)
+![Liberal](https://github.com/CSCI3395-F17/daily-code-mnewtonten/blob/master/images/liberal.png?raw=true)
+![Very Liberal](https://github.com/CSCI3395-F17/daily-code-mnewtonten/blob/master/images/veryliberal.png?raw=true)
 
 
 I do my classifications based on word count, character count, and sentiment analysis using a random forest search.
-My political bias analyis for this limited dataset came up being 31% accurate the first time I ran it, and 
+My political bias analyis for this limited dataset came up being 31% accurate the first time I ran it, and 33.75% the second time 
 
 
 To do analysis on 1,000 articles took my roughly 30 minutes, so to do my complete dataset (1000 of each publication) is going to take about 7.5 hours. I'll update this file with my findings tomorrow.
