@@ -64,5 +64,17 @@ My political bias analyis for this limited dataset came up being 31% accurate th
 
 To do analysis on 1,000 articles took my roughly 30 minutes, so to do my complete dataset (1000 of each publication) is going to take about 7.5 hours. I'll update this file with my findings tomorrow.
 
+So after 10.6 hours of chugging along, my analysis is complete and I have these charts to show for it.
+
+![VC](https://github.com/CSCI3395-F17/daily-code-mnewtonten/blob/master/images/fp_vc.png?raw=true)
+![C](https://github.com/CSCI3395-F17/daily-code-mnewtonten/blob/master/images/fp_c.png?raw=true)
+![N](https://github.com/CSCI3395-F17/daily-code-mnewtonten/blob/master/images/fp_n.png?raw=true)
+![L](https://github.com/CSCI3395-F17/daily-code-mnewtonten/blob/master/images/fp_l.png?raw=true)
+![VL](https://github.com/CSCI3395-F17/daily-code-mnewtonten/blob/master/images/fp_vl.png?raw=true)
+
+From what I can tell from these plots, I was suprised to see that in both the cases of "liberal" vs "conservative" as well as "very liberal" vs "very conservative," the liberal side had a greater standard deviation of sentiment, though liberal articles were typically longer, and this might have something to do with it, it seemed like for the most part word count did not change the sentiment value very much, and many very long articles were quite neutral in their sentiment. 
+
+The accuracy of my classification this time was 36.13%, which is a better score than I was getting before, and while it's not as good as I want, still better than just randomly guessing (as that would be 1/5 chance or 20%).
+
 If I were to expand on this analysis, I would check to see if adding the number of words/characters in the title of an article helped refine my classification accuracy, and if I could classify the articles based on the "Getting Real About Fake News" dataset, on if they are more likely to be a bs or hate article.
 
